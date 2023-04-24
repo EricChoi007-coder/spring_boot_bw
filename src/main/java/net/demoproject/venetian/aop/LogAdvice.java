@@ -27,16 +27,16 @@ public class LogAdvice {
         System.out.println("LogAdvice afterLog");
     }
 
-    @AfterThrowing(pointcut = "aspect()",throwing = "e")
-    public void afterThrowing(JoinPoint joinPoint,Throwable e){
-        if (e instanceof CustomException) {
+    @AfterThrowing(pointcut = "aspect()",throwing = "ex")
+    public void afterThrowing(JoinPoint joinPoint,Throwable ex){
+        if (ex instanceof CustomException) {
             System.out.println("客制化获到异常了..............");
             //纪录错误信息
-            System.out.println("客制化错误:"+ ((CustomException) e).getErrorInfo());
+            System.out.println("客制化错误:"+ ((CustomException) ex).getErrorInfo());
         }else{
             System.out.println("全局捕获到异常了..............");
             //纪录错误信息
-            System.out.println("系统错误:{}"+ e.getMessage());
+            System.out.println("系统错误:{}"+ ex.getMessage());
             // todo 想要执行的操作
         }
 
