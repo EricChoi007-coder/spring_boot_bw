@@ -19,3 +19,9 @@ management:
         include: "*"     # 方式2: 包括所有端点, 注意需要添加引号
         # 排除端点
         exclude: shutdown
+
+jasypt:
+  encryptor:
+    property:
+      prefix: "ENC@["
+      suffix: "]"

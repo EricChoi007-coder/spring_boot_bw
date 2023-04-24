@@ -6,10 +6,14 @@ import net.demoproject.venetian.utils.JWTUtils;
 import io.jsonwebtoken.Claims;
 import net.demoproject.venetian.utils.JsonData;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/pub/user")
+@PropertySource({"classpath:test.properties"})
 public class UserController {
 
 
@@ -21,6 +25,8 @@ public class UserController {
 //        return JsonData.buildSuccess("");
 //    }
 
+    @Value("test.best")
+ private String testData;
 
     @Autowired
     public UserService userService;
@@ -54,6 +60,11 @@ public class UserController {
 
     }
 
+    @GetMapping("test2")
+    public JsonData test2(){
+        return  JsonData.buildSuccess(testData);
+    }
+
     @GetMapping("find_by_token")
     public JsonData findUserInfoByToken(String token){
 
@@ -64,6 +75,9 @@ public class UserController {
         return JsonData.buildSuccess(user);
 
     }
+
+
+
 
 
 

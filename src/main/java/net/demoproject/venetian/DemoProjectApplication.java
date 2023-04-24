@@ -4,8 +4,10 @@ import net.demoproject.venetian.aop.AnnotationAppConfig;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
+@EnableScheduling
 public class DemoProjectApplication {
 
 	public static void main(String[] args) {

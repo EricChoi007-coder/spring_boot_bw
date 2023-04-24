@@ -9,4 +9,6 @@ public interface VideoService {
 
     List<Video> listVideo();
 
+    void scheduleJobTest() throws Exception;
+
 }
